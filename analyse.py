@@ -14,6 +14,7 @@ async def analyse(message):
             await message.channel.send(messages[gif_or_msg][number])
         elif rand == 1:
             await message.add_reaction('👍')
+            await message.channel.send("Pour le coup, entièrement d'accord avec toi !")
         elif rand == 2:
             # Social score board modified
             # For instance, it send a gif
