@@ -22,11 +22,7 @@ async def analyse(message):
             await message.channel.send("Pour le coup, entièrement d'accord avec toi !")
         elif rand == 2:
             camarades = conf.camarades()
-            print(camarades[0])
-            print(message.author)
-            print(str(camarades[0]) == str(message.author))
             if str(message.author) in camarades:
-                print("Camarade")
                 await message.add_reaction('📝')
                 await message.channel.send(
                     "Attention " + message.author.mention + ", tu as glissé ! Tu veux que ton score baisse ?!")
