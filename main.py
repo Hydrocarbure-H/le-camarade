@@ -1,5 +1,6 @@
 import conf
 import discord
+import analyse
 
 
 class MyClient(discord.Client):
@@ -7,12 +8,10 @@ class MyClient(discord.Client):
         print('Logged on as', self.user)
 
     async def on_message(self, message):
-        # don't respond to ourselves
         if message.author == self.user:
             return
 
-        if message.content == 'ping':
-            await message.channel.send('pong')
+        await analyse.analyse(message)
 
 
 def main(t):
@@ -25,5 +24,5 @@ def main(t):
 
 
 if "__main__" == __name__:
-    token = conf.init()
+    token = conf.token()
     main(token)
