@@ -2,6 +2,7 @@ import random
 
 from messages import Messages, messages
 from keywords import Keywords, keywords
+import conf
 
 
 async def analyse(message):
@@ -16,11 +17,11 @@ async def analyse(message):
             await message.add_reaction('👍')
             await message.channel.send("Pour le coup, entièrement d'accord avec toi !")
         elif rand == 2:
-            # Social score board modified
-            # For instance, it send a gif
-            gif_or_msg = random.randint(0, 1)
-            number = random.randint(0, len(messages[gif_or_msg]) - 1)
-            await message.channel.send(messages[gif_or_msg][number])
+            camarades = conf.camarades()
+            if message.author in camarades:
+                await message.add_reaction('👍')
+                await message.channel.send(
+                    "Attention " + message.author.name + ", tu as glissé ! N'oublies pas le social score board...!")
 
 
 def check_content(text):
