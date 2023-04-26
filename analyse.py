@@ -1,4 +1,5 @@
 import random
+from time import sleep
 
 from messages import Messages, messages
 from keywords import Keywords, keywords
@@ -8,6 +9,8 @@ import conf
 async def analyse(message):
     # Avoid this check but just for fun
     if str(message.author) == "Social Credit System of The PRC#0957":
+        # Wait 5 seconds
+        sleep(5)
         await message.channel.send(
             "Je vais te démolir sale bot de merde que je peux pas mentionner sinon tout le discord crash. Prépare toi à te faire défoncer.")
     type = check_content(message.content)
