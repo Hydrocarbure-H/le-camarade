@@ -9,7 +9,7 @@ async def analyse(message):
     # Avoid this check but just for fun
     if str(message.author) == "Social Credit System of The PRC#0957":
         await message.channel.send(
-            "Je vais te démolir. " + message.author + ", prépare toi à te faire défoncer.")
+            "Je vais te démolir. " + str(message.author) + ", prépare toi à te faire défoncer.")
     type = check_content(message.content)
     if type is not None:
         rand = random.randint(0, 2)
