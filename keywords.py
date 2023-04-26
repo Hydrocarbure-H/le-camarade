@@ -17,7 +17,8 @@ machists_keywords = ['macho', 'machos', 'machisme', 'machiste', 'machistes', 'la
 # Genere une liste d'insultes
 insults_keywords = ['enfoiré', 'enfoirés', 'enfoirée', 'enfoirées', 'enculé', 'enculés', 'enculée', 'enculées',
                     'connard', 'connards', 'connasse', 'connasses', 'connardes', 'connardes', 'connardes', 'connasse',
-                    'connasses', 'débile', 'mongole', 'trisomique', 'débiles', 'mongoles', 'trisomiques', 'débile']
+                    'connasses', 'débile', 'mongole', 'trisomique', 'débiles', 'mongoles', 'trisomiques', 'débile',
+                    'merde', 'putain', 'chier', 'race', 'sa mère', 'mère']
 # Genere une liste de mots en rapport avec le drift
 drift_keywords = ['drift', 'drifter', 'drifté', 'driftée', 'driftées', 'driftés', 'driftant', 'driftants', 'driftantes',
                   'driftante', 'drifts', 'drifté', 'driftée']
