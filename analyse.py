@@ -8,11 +8,10 @@ import conf
 
 async def analyse(message):
     # Avoid this check but just for fun
-    if str(message.author) == "Social Credit System of The PRC#0957":
+    if str(message.author) == "el Sombre-Héros#8173":
         # Wait 5 seconds
-        sleep(5)
         await message.channel.send(
-            "Je vais te démolir sale bot de merde que je peux pas mentionner sinon tout le discord crash. Prépare toi à te faire défoncer.")
+            "Sale nain.")
     type = check_content(message.content)
     if type is not None:
         rand = random.randint(0, 2)
