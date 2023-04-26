@@ -21,7 +21,7 @@ async def analyse(message):
             if message.author in camarades:
                 await message.add_reaction('👍')
                 await message.channel.send(
-                    "Attention " + message.author.name + ", tu as glissé ! N'oublies pas le social score board...!")
+                    "Attention @" + message.author.name + ", tu as glissé ! N'oublies pas le social score board...!")
 
 
 def check_content(text):
