@@ -1,4 +1,4 @@
-from Crypto.Random import random
+import random
 
 from messages import Messages, messages
 from keywords import Keywords, keywords
