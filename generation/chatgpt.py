@@ -26,6 +26,6 @@ def gpt_answer(message):
             n=1,
             stop=None)
 
-        return response.choices[0].text.strip()
+        return (response.choices[0].text.strip()).replace('"', '')
     except OpenAIError as e:
         return None
