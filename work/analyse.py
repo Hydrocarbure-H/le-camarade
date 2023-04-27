@@ -48,6 +48,9 @@ def check_content(text):
     elif any(x in txt for x in keywords[Keywords.HAHA.value]):
         return Keywords.HAHA
 
-    # Check if the txt contains a discriminative keyword
-    elif any(x in txt for x in keywords):
-        return Keywords.OTHER
+    # Check if the txt contains a discriminative keyword in all the other keywords
+    else:
+        for i in range(0, len(keywords)):
+            if i not in [Keywords.HAHA.value, Keywords.DRIFT.value, Keywords.INSULT.value]:
+                if any(x in txt for x in keywords[i]):
+                    return Keywords.OTHER

@@ -31,8 +31,10 @@ def gpt_answer(message):
 
         result = (response.choices[0].text.strip()).replace('"', '')
         # Remove 2 first lines
-        result = result.split("\n", 2)[2]
-        print(response.choices[0].text)
-        return result
+        try:
+            result = result.split("\n", 2)[2]
+            return result
+        except IndexError:
+            return None
     except OpenAIError as e:
         return None

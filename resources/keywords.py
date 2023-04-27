@@ -2,12 +2,12 @@ from enum import Enum
 
 # All of the following keywods have been generated using the GithubCopilot AI
 racists_keywords = ['nègre', 'négro', 'négros', 'négroes', 'négroïde', 'négroïdes', 'nègres', 'raciste', 'racistes',
-                    'racisme', 'racismes', 'racialisé', 'racialisés', 'racialisée', 'race', 'nazi']
+                    'racisme', 'racismes', 'racialisé', 'racialisés', 'racialisée', 'race']
 sexists_keywords = ['pute', 'putes', 'salope', 'salopes', 'salop', 'salops', 'saloperie', 'saloperies', 'salopette',
                     'salopettes', 'salopards', 'salopard', 'saloparde', 'salopardes', 'salopin']
 homophobes_keywords = ['pd', 'pédé', 'pédés', 'pédé', 'pédés', 'pédéraste', 'pédérastes', 'pédérastie', 'pédérasties',
                        'pédérastique']
-antisemites_keywords = ['youpin', 'youpins', 'youpines', 'youpine', 'youpines', 'youpinerie', 'youpiner']
+antisemites_keywords = ['youpin', 'youpins', 'youpines', 'youpine', 'youpines', 'youpinerie', 'youpiner', 'nazi']
 machists_keywords = ['macho', 'machos', 'machisme', 'machiste', 'machistes', 'la place de la femme',
                      'femme à la maison', 'femme au foyer', 'femme de ménage', 'cuisine', 'femme', 'meuf']
 insults_keywords = ['enfoiré', 'enfoirés', 'enfoirée', 'enfoirées', 'enculé', 'enculés', 'enculée', 'enculées',
