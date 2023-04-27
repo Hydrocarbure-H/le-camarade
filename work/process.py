@@ -39,6 +39,12 @@ async def insult_actions(message):
     :return: Nothing
     """
 
+    # Check if Le Camarade is mentionned
+    if str(conf.lecamarade()) in message.content:
+        answer = gpt_answer(message.content)
+        if answer is not None:
+            await message.channel.send(answer, reference=message)
+
     # Test an answer from chatgpt
     answer = gpt_answer(message.content)
     if answer is not None:
