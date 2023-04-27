@@ -24,7 +24,7 @@ async def analyse(message):
             await insult_actions(message)
             return
         # Check for other keywords (only discriminative)
-        else:
+        elif t == Keywords.OTHER:
             await default_actions(message)
 
 
@@ -47,5 +47,7 @@ def check_content(text):
     # Check if the txt contains a haha keyword
     elif any(x in txt for x in keywords[Keywords.HAHA.value]):
         return Keywords.HAHA
-    else:
-        return None
+
+    # Check if the txt contains a discriminative keyword
+    elif any(x in txt for x in keywords):
+        return Keywords.OTHER

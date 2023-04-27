@@ -24,6 +24,7 @@ keywords = [racists_keywords, sexists_keywords, homophobes_keywords, antisemites
 
 
 class Keywords(Enum):
+    OTHER = 9
     RACIST = 0
     SEXIST = 1
     HOMOPHOBE = 2
