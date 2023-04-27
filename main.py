@@ -1,6 +1,6 @@
 import conf
 import discord
-import analyse
+from work import analyse
 
 
 class MyClient(discord.Client):
