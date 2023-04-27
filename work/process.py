@@ -43,7 +43,7 @@ async def insult_actions(message):
     if str(conf.lecamarade()) in message.content:
         answer = gpt_answer(message.content)
         if answer is not None:
-            await message.channel.send(answer, reference=message)
+            await message.channel.send(message.author.mention + " " + answer)
 
     # Test an answer from chatgpt
     answer = gpt_answer(message.content)
