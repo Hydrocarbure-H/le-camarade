@@ -1,69 +1,43 @@
-import random
-from time import sleep
-
-from messages import Messages, messages
 from keywords import Keywords, keywords
-import conf
+from process import haha_actions, drift_actions, insult_actions, default_actions
 
 
 async def analyse(message):
-    # Avoid this check but just for fun
-    camarades = conf.camarades()
-    if str(message.author) == camarades[3]:
-        # Wait 5 seconds
-        await message.channel.send(
-            "Sale nain.")
-    type = check_content(message.content)
-    if type is not None:
+    """
+    Analyse the message to see if it contains a keyword
+    :param message: The discord message object
+    :return: Nothing
+    """
+
+    t = check_content(message.content)
+    if t is not None:
         # Check for haha
-        if type == Keywords.HAHA:
-            response = random.randint(0, len(messages[2]) - 1)
-            await message.channel.send(messages[2][response])
+        if t == Keywords.HAHA:
+            haha_actions(message)
             return
-        rand = random.randint(0, 2)
-        if rand == 0:
-            gif_or_msg = random.randint(0, 1)
-            number = random.randint(0, len(messages[gif_or_msg]) - 1)
-            await message.channel.send(messages[gif_or_msg][number])
-        elif rand == 1:
-            await message.add_reaction('👍')
-            await message.channel.send("Pour le coup, entièrement d'accord avec toi !")
-        elif rand == 2:
-            camarades = conf.camarades()
-            if str(message.author) in camarades:
-                await message.add_reaction('📝')
-                await message.channel.send(
-                    "Attention " + message.author.mention + ", tu as glissé ! Tu veux que ton score baisse ?!")
+        # Check for drift (GIFTS)
+        elif t == Keywords.DRIFT:
+            drift_actions(message)
+            return
+        # Check for insults
+        elif t == Keywords.INSULT:
+            insult_actions(message)
+            return
+        # Check for other keywords (only discriminative)
+        else:
+            default_actions(message)
 
 
 def check_content(text):
-    # Do a switch case will all lists
-
+    """
+    Check the content of the message to see if it contains a keyword
+    :param text: The full message
+    :return: The keyword index if found, None otherwise
+    """
     txt = text.lower()
 
-    # Check if the txt contains a sexist keyword
-    # Check if the txt contains a sexist keyword
-    if any(x in txt for x in keywords[Keywords.SEXIST.value]):
-        return Keywords.SEXIST
-
-    # Check if the txt contains a racist keyword
-    elif any(x in txt for x in keywords[Keywords.RACIST.value]):
-        return Keywords.RACIST
-
-    # Check if the txt contains a homophobe keyword
-    elif any(x in txt for x in keywords[Keywords.HOMOPHOBE.value]):
-        return Keywords.HOMOPHOBE
-
-    # Check if the txt contains a antisemite keyword
-    elif any(x in txt for x in keywords[Keywords.ANTISEMITE.value]):
-        return Keywords.ANTISEMITE
-
-    # Check if the txt contains a machist keyword
-    elif any(x in txt for x in keywords[Keywords.MACHIST.value]):
-        return Keywords.MACHIST
-
     # Check if the txt contains a insult keyword
-    elif any(x in txt for x in keywords[Keywords.INSULT.value]):
+    if any(x in txt for x in keywords[Keywords.INSULT.value]):
         return Keywords.INSULT
 
     # Check if the txt contains a drift keyword
@@ -73,3 +47,5 @@ def check_content(text):
     # Check if the txt contains a haha keyword
     elif any(x in txt for x in keywords[Keywords.HAHA.value]):
         return Keywords.HAHA
+    else:
+        return None

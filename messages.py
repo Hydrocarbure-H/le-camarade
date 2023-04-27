@@ -75,5 +75,6 @@ messages = [
 
 
 class Messages(Enum):
-    PHRASES = 0
+    IRNONIC = 0
     GIFS = 1
+    HAHA = 2

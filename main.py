@@ -4,10 +4,20 @@ import analyse
 
 
 class MyClient(discord.Client):
+    """
+    Client class (From Discord.py documentation)
+    """
+
     async def on_ready(self):
         print('Logged on as', self.user)
 
     async def on_message(self, message):
+        """
+        Handle every message
+        :param message: Message object
+        :return: Nothing
+        """
+
         if message.author == self.user:
             return
 
@@ -15,7 +25,11 @@ class MyClient(discord.Client):
 
 
 def main(t):
-    print(t)
+    """
+    Main function
+    :param t: token
+    :return: Nothing
+    """
 
     intents = discord.Intents.default()
     intents.message_content = True
