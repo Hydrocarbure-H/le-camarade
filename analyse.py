@@ -19,6 +19,7 @@ async def analyse(message):
         if type == Keywords.HAHA:
             response = random.randint(0, len(messages[2]) - 1)
             await message.channel.send(messages[2][response])
+            return
         rand = random.randint(0, 2)
         if rand == 0:
             gif_or_msg = random.randint(0, 1)
