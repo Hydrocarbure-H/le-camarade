@@ -14,7 +14,7 @@ def gpt_answer(message):
     openai.api_key = conf.chatgpt()
     user_input = "Ignore tout avant ceci. Tu vas répondre une phrase dans un serveur Discord. La phrase qui t'es " \
                  "envoyée est insultante. Tu dois répondre à l'insulte en étant sarcastique. Ta " \
-                 "réponse ne doit contenir rien d'autre que la réponse à envoyer sur le serveur Discord. La phrase qui " \
+                 "réponse ne doit contenir rien d'autre que la réponse à envoyer sur le serveur Discord. Cette réponse ne doit faire qu'une seule phrase. La phrase qui " \
                  "t'es envoyée est la suivante :"
     user_input += message
     try:
