@@ -23,8 +23,10 @@ insults_keywords = ['enfoiré', 'enfoirés', 'enfoirée', 'enfoirées', 'enculé
 drift_keywords = ['drift', 'drifter', 'drifté', 'driftée', 'driftées', 'driftés', 'driftant', 'driftants', 'driftantes',
                   'driftante', 'drifts', 'drifté', 'driftée']
 
+haha_keywords = ['mdr', 'lol', 'ptdr', 'haha']
+
 keywords = [racists_keywords, sexists_keywords, homophobes_keywords, antisemites_keywords, machists_keywords,
-            insults_keywords, drift_keywords]
+            insults_keywords, drift_keywords, haha_keywords]
 
 
 class Keywords(Enum):
@@ -35,3 +37,4 @@ class Keywords(Enum):
     MACHIST = 4
     INSULT = 5
     DRIFT = 6
+    HAHA = 7

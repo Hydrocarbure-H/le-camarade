@@ -55,9 +55,22 @@ liens_gifs_drifts = [
     "https://media.giphy.com/media/Y1Fd98SJo8TlK8W9cr/giphy.gif",
 ]
 
+haha_phrases = [
+    "Pas mal haha !",
+    "Haha !",
+    "Haha, bien vu !",
+    "Haha, j'adore !",
+    "Haha, c'est drôle !",
+    "Ptdrrrrrr",
+    "Haha, c'est trop drôle !",
+    "Haha, c'est trop marrant !",
+    "J'aurai pas dit mieux !"
+]
+
 messages = [
     ironic_phrases,
-    liens_gifs_drifts
+    liens_gifs_drifts,
+    haha_phrases
 ]
 
 

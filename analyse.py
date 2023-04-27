@@ -8,12 +8,17 @@ import conf
 
 async def analyse(message):
     # Avoid this check but just for fun
-    if str(message.author) == "el Sombre-Héros#8173":
+    camarades = conf.camarades()
+    if str(message.author) == camarades[3]:
         # Wait 5 seconds
         await message.channel.send(
             "Sale nain.")
     type = check_content(message.content)
     if type is not None:
+        # Check for haha
+        if type == Keywords.HAHA:
+            response = random.randint(0, len(messages[2]) - 1)
+            await message.channel.send(messages[2][response])
         rand = random.randint(0, 2)
         if rand == 0:
             gif_or_msg = random.randint(0, 1)
@@ -63,3 +68,7 @@ def check_content(text):
     # Check if the txt contains a drift keyword
     elif any(x in txt for x in keywords[Keywords.DRIFT.value]):
         return Keywords.DRIFT
+
+    # Check if the txt contains a haha keyword
+    elif any(x in txt for x in keywords[Keywords.HAHA.value]):
+        return Keywords.HAHA
