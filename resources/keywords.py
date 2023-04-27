@@ -1,7 +1,6 @@
 from enum import Enum
 
 # All of the following keywods have been generated using the GithubCopilot AI
-# Genere une liste de mots clés racistes
 racists_keywords = ['nègre', 'négro', 'négros', 'négroes', 'négroïde', 'négroïdes', 'nègres', 'raciste', 'racistes',
                     'racisme', 'racismes', 'racialisé', 'racialisés', 'racialisée', 'race']
 sexists_keywords = ['pute', 'putes', 'salope', 'salopes', 'salop', 'salops', 'saloperie', 'saloperies', 'salopette',
