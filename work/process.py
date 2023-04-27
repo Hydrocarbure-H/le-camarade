@@ -6,7 +6,7 @@ from resources.messages import Messages, messages
 from generation.joke import get_gif
 
 
-def haha_actions(message):
+async def haha_actions(message):
     """
     Send a message or a gif because of a haha
     :param message: Message object
@@ -21,7 +21,7 @@ def haha_actions(message):
         return
 
 
-def drift_actions(message):
+async def drift_actions(message):
     """
     Send a gif because of a drift
     :param message: Message object
@@ -32,7 +32,7 @@ def drift_actions(message):
     return
 
 
-def insult_actions(message):
+async def insult_actions(message):
     """
     Send a message because of a insult. From chatgpt or from a list of messages
     :param message: Message object
@@ -49,7 +49,7 @@ def insult_actions(message):
     return
 
 
-def default_actions(message):
+async def default_actions(message):
     """
     Send a message because of a discriminative keyword
     Will decrease the score (Or increase if Le Camarade is in Dark mode)

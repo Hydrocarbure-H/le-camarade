@@ -13,19 +13,19 @@ async def analyse(message):
     if t is not None:
         # Check for haha
         if t == Keywords.HAHA:
-            haha_actions(message)
+            await haha_actions(message)
             return
         # Check for drift (GIFTS)
         elif t == Keywords.DRIFT:
-            drift_actions(message)
+            await drift_actions(message)
             return
         # Check for insults
         elif t == Keywords.INSULT:
-            insult_actions(message)
+            await insult_actions(message)
             return
         # Check for other keywords (only discriminative)
         else:
-            default_actions(message)
+            await default_actions(message)
 
 
 def check_content(text):
