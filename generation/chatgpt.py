@@ -13,7 +13,8 @@ def gpt_answer(message):
 
     openai.api_key = conf.chatgpt()
     user_input = "Ignore tout avant ceci. Tu vas répondre une phrase dans un serveur Discord. La phrase qui t'es " \
-                 "envoyée est insultante mais ne t'es pas forcément adressée. Analyse la phrase pour savoir si tu dois répondre" \
+                 "envoyée est insultante mais ne t'es pas forcément adressée. Analyse la phrase pour savoir si tu " \
+                 "dois répondre" \
                  " à la première personne ou s'il s'agit de quelqu'un d'autre. " \
                  "Tu dois répondre à l'insulte en étant sarcastique. Ta " \
                  "réponse ne doit contenir rien d'autre que la réponse à envoyer sur le serveur Discord. " \
