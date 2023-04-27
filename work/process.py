@@ -1,9 +1,9 @@
 import random
 
 import conf
-from chatgpt import gpt_answer
-from messages import Messages, messages
-from joke import get_gif
+from generation.chatgpt import gpt_answer
+from resources.messages import Messages, messages
+from generation.joke import get_gif
 
 
 def haha_actions(message):

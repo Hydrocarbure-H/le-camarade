@@ -1,5 +1,5 @@
-from keywords import Keywords, keywords
-from process import haha_actions, drift_actions, insult_actions, default_actions
+from resources.keywords import Keywords, keywords
+from work.process import haha_actions, drift_actions, insult_actions, default_actions
 
 
 async def analyse(message):
