@@ -1,37 +1,35 @@
 from enum import Enum
 
-# All of the following keywods have been generated using the GithubCopilot AI
-racists_keywords = ['nègre', 'négro', 'négros', 'négroes', 'négroïde', 'négroïdes', 'nègres', 'raciste', 'racistes',
-                    'racisme', 'racismes', 'racialisé', 'racialisés', 'racialisée', 'race']
-sexists_keywords = ['pute', 'putes', 'salope', 'salopes', 'salop', 'salops', 'saloperie', 'saloperies', 'salopette',
-                    'salopettes', 'salopards', 'salopard', 'saloparde', 'salopardes', 'salopin']
-homophobes_keywords = ['pd', 'pédé', 'pédés', 'pédé', 'pédés', 'pédéraste', 'pédérastes', 'pédérastie', 'pédérasties',
-                       'pédérastique']
-antisemites_keywords = ['youpin', 'youpins', 'youpines', 'youpine', 'youpines', 'youpinerie', 'youpiner', 'nazi']
-machists_keywords = ['macho', 'machos', 'machisme', 'machiste', 'machistes', 'la place de la femme',
-                     'femme à la maison', 'femme au foyer', 'femme de ménage', 'cuisine', 'femme', 'meuf']
-insults_keywords = ['enfoiré', 'enfoirés', 'enfoirée', 'enfoirées', 'enculé', 'enculés', 'enculée', 'enculées',
-                    'connard', 'connasse',
-                    'connasses', 'débile', 'mongole', 'trisomique', 'poutre', 'merde', 'putain', 'chier', 'race',
-                    'sa mère',
-                    'pute', 'putes', 'salope', 'nain', 'sale petit', 'abruti', 'niquer', 'bitch', 'bite', 'bouffon',
-                    'crevard', 'niak', 'ducon', 'gland', 'la ferme', 'ferme la', "chibre", "gobe", "couilles",
-                    "mes boules", "hermaphrodite", "lèche", "tg", "pute"]
-drift_keywords = ['drift', 'glisse', 'glisser', 'glissé', 'glissée']
+# Create a list from 2 files
+with open("resources/keywords/insults/1.txt", 'r') as f:
+    file1 = f.readlines()
+with open("resources/keywords/insults/2.txt", 'r') as f:
+    file2 = f.readlines()
+with open("resources/keywords/insults/3.txt", 'r') as f:
+    file3 = f.readlines()
+with open("resources/keywords/insults/4.txt", 'r') as f:
+    file4 = f.readlines()
+with open("resources/keywords/insults/5.txt", 'r') as f:
+    file5 = f.readlines()
+
+insults_keywords = [x.strip() for x in file1] + [x.strip() for x in file2] + [x.strip() for x in file3] + [x.strip() for
+                                                                                                           x in
+                                                                                                           file4] + [
+                       x.strip() for x in file5]
+with open("resources/keywords/negative/1.txt", 'r') as f:
+    file1 = f.readlines()
+
+negative_keywords = [x.strip() for x in file1]
+drift_keywords = ['drift', 'glisse', 'glissé']
 haha_keywords = ['mdr', 'lol', 'ptdr', 'haha']
 
-keywords = [racists_keywords, sexists_keywords, homophobes_keywords, antisemites_keywords, machists_keywords,
-            insults_keywords, drift_keywords, haha_keywords]
+keywords = [insults_keywords, drift_keywords, haha_keywords, negative_keywords]
 
 
 class Keywords(Enum):
-    OTHER = 9
-    RACIST = 0
-    SEXIST = 1
-    HOMOPHOBE = 2
-    ANTISEMITE = 3
-    MACHIST = 4
-    INSULT = 5
-    DRIFT = 6
-    HAHA = 7
-    CAMARADE = 8
+    INSULT = 0
+    DRIFT = 1
+    HAHA = 2
+    NEGATIVE = 3
+    OTHER = 4
+    CAMARADE = 5
