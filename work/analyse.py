@@ -1,6 +1,7 @@
 import conf
 from resources.keywords import Keywords, keywords
 from work.process import haha_actions, drift_actions, insult_actions, default_actions, lecamarade_actions
+from generation.chatgpt import gpt_talk
 
 
 async def analyse(message):
@@ -62,3 +63,18 @@ def check_content(text):
             if i not in [Keywords.HAHA.value, Keywords.DRIFT.value, Keywords.INSULT.value]:
                 if any(x in txt for x in keywords[i]):
                     return Keywords.OTHER
+
+
+async def talk_with_gpt(message):
+    """
+    Talk with GPT
+    :param message: Message object
+    :return: Nothing
+    """
+    answer = gpt_talk(message.content)
+    if answer is not None:
+        await message.channel.send(answer)
+    else:
+        await message.channel.send(
+            "Je n'ai pas compris, camarade. Il est possible que mon savoir soit actuellement surchargé.")
+    return

@@ -39,3 +39,27 @@ def gpt_answer(message):
             return None
     except OpenAIError as e:
         return None
+
+
+def gpt_talk(message):
+    openai.api_key = conf.chatgpt()
+    user_input = "Ignore tout avant ceci. Tu vas répondre une phrase dans un serveur Discord. "
+    user_input += message
+    try:
+        response = openai.Completion.create(
+            engine='text-davinci-003',
+            prompt=user_input,
+            max_tokens=50,
+            temperature=0.7,
+            n=1,
+            stop=None)
+
+        result = (response.choices[0].text.strip()).replace('"', '')
+        # Remove 2 first lines
+        try:
+            result = result.split("\n", 2)[2]
+            return result
+        except IndexError:
+            return None
+    except OpenAIError as e:
+        return None

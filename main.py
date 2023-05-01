@@ -21,7 +21,10 @@ class MyClient(discord.Client):
         if message.author == self.user:
             return
 
-        await analyse.analyse(message)
+        if message.channel == "le-camarade-pété":
+            await analyse.talk_with_gpt(message)
+        else:
+            await analyse.analyse(message)
 
 
 def main(t):
