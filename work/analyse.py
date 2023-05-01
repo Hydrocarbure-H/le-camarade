@@ -71,7 +71,6 @@ async def talk_with_gpt(message):
     :param message: Message object
     :return: Nothing
     """
-    print("GPT is talking")
     answer = gpt_talk(message.content)
     if answer is not None:
         await message.channel.send(answer)
