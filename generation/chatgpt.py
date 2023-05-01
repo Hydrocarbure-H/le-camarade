@@ -43,7 +43,7 @@ def gpt_answer(message):
 
 def gpt_talk(message):
     openai.api_key = conf.chatgpt()
-    user_input = ""
+    user_input = "Ignore tout avant ceci. Tu vas répondre une phrase dans un serveur Discord. "
     user_input += message
     try:
         response = openai.Completion.create(
