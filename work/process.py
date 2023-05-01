@@ -32,6 +32,17 @@ async def drift_actions(message):
     return
 
 
+async def lecamarade_actions(message):
+    """
+    Send a message because of a insult. From chatgpt or from a list of messages
+    :param message: Message object
+    :return: Nothing
+    """
+    answer = gpt_answer(message.content)
+    if answer is not None:
+        await message.channel.send(message.author.mention + " " + answer)
+
+
 async def insult_actions(message):
     """
     Send a message because of a insult. From chatgpt or from a list of messages
@@ -39,8 +50,7 @@ async def insult_actions(message):
     :return: Nothing
     """
 
-    # Check if Le Camarade is mentionned
-    if str(conf.lecamarade()) in message.content:
+    if str(conf.lecamarade_mentionned()) in message.content:
         answer = gpt_answer(message.content)
         if answer is not None:
             await message.channel.send(message.author.mention + " " + answer)

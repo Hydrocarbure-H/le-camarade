@@ -1,14 +1,17 @@
 from enum import Enum
 
 ironic_phrases = [
-    "Ah, bien sûr, c'est vraiment mal de dire la vérité. Mais bon, on peut tous convenir que vivre dans un monde de mensonges est tellement plus agréable, n'est-ce pas ?",
-    "Oh, dire du mal des autres, c'est vraiment mal... mais avouons-le, ça donne un petit piment à nos vies, un peu comme un feuilleton dramatique sans fin.",
+    "Ah, bien sûr, c'est vraiment mal de dire la vérité. Mais bon, on peut tous convenir que vivre dans un monde de "
+    "mensonges est tellement plus agréable, n'est-ce pas ?",
+    "Oh, dire du mal des autres, c'est vraiment mal... mais avouons-le, ça donne un petit piment à nos vies, "
+    "un peu comme un feuilleton dramatique sans fin.",
     "Oui, oui, critiquer les goûts des autres, c'est vraiment mal, mais bon, il est tellement amusant de se sentir intellectuellement supérieur en rabaissant les choix artistiques d'autrui.",
     "On ne devrait jamais rire des malheurs des autres, c'est vraiment pas bien. Mais soyons honnêtes, un petit éclat de rire discret ne fait de mal à personne, n'est-ce pas ?",
     "\"Ne juge pas un livre par sa couverture\", c'est bien connu. Mais sérieusement, qui a besoin de s'embêter à lire quand on peut juste juger les gens sur leur apparence ?",
     "Critiquer la nourriture des autres, c'est vraiment mal élevé. Cependant, on peut tous admettre que c'est tellement amusant de se plaindre des plats lors d'un dîner, ça crée une ambiance légère, n'est-ce pas ?",
     "Bien sûr, il ne faut jamais se moquer des rêves et des ambitions des autres. Mais sérieusement, qui n'aime pas éclater de rire devant une liste de résolutions du Nouvel An qui n'a jamais été suivie ?",
-    "Oui, il est mal de juger les livres par leur popularité, mais soyons honnêtes, rien ne vaut le plaisir de se sentir supérieur en critiquant un best-seller.",
+    "Oui, il est mal de juger les livres par leur popularité, mais soyons honnêtes, rien ne vaut le plaisir de se "
+    "sentir supérieur en critiquant un best-seller.",
     "Bien sûr, se moquer des modes et des tendances, c'est vraiment pas bien. Mais admettons-le, ça fait tellement du bien de se sentir rebelle en refusant de suivre les dernières tendances.",
     "Oui, il est mal de généraliser, mais franchement, qui n'aime pas faire des généralisations de temps en temps ? C'est tellement pratique et ça économise tellement d'énergie intellectuelle.",
     "Loin des yeux, loin du cœur, mais bien sûr, l'ignorance totale est la clé d'une relation solide.",

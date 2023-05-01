@@ -15,7 +15,8 @@ insults_keywords = ['enfoiré', 'enfoirés', 'enfoirée', 'enfoirées', 'enculé
                     'connasses', 'débile', 'mongole', 'trisomique', 'poutre', 'merde', 'putain', 'chier', 'race',
                     'sa mère',
                     'pute', 'putes', 'salope', 'nain', 'sale petit', 'abruti', 'niquer', 'bitch', 'bite', 'bouffon',
-                    'crevard', 'niak', 'ducon', 'gland', 'la ferme', 'ferme la']
+                    'crevard', 'niak', 'ducon', 'gland', 'la ferme', 'ferme la', "chibre", "gobe", "couilles",
+                    "mes boules", "hermaphrodite", "lèche", "tg", "pute"]
 drift_keywords = ['drift', 'glisse', 'glisser', 'glissé', 'glissée']
 haha_keywords = ['mdr', 'lol', 'ptdr', 'haha']
 

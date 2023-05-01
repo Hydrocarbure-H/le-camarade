@@ -1,5 +1,6 @@
+import conf
 from resources.keywords import Keywords, keywords
-from work.process import haha_actions, drift_actions, insult_actions, default_actions
+from work.process import haha_actions, drift_actions, insult_actions, default_actions, lecamarade_actions
 
 
 async def analyse(message):
@@ -26,6 +27,10 @@ async def analyse(message):
         # Check for other keywords (only discriminative)
         elif t == Keywords.OTHER:
             await default_actions(message)
+            return
+        elif t == Keywords.CAMARADE:
+            await lecamarade_actions(message)
+            return
 
 
 def check_content(text):
@@ -47,6 +52,9 @@ def check_content(text):
     # Check if the txt contains a haha keyword
     elif any(x in txt for x in keywords[Keywords.HAHA.value]):
         return Keywords.HAHA
+
+    elif str(conf.lecamarade_mentionned()) in text:
+        return Keywords.CAMARADE
 
     # Check if the txt contains a discriminative keyword in all the other keywords
     else:
