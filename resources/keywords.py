@@ -19,8 +19,12 @@ insults_keywords = list(filter(None, insults_keywords))
 
 with open("resources/keywords/negative/1.txt", 'r') as f:
     file1 = f.readlines()
-
 negative_keywords = [x.strip() for x in file1]
+
+# Remove duplicates and empty strings
+negative_keywords = list(dict.fromkeys(negative_keywords))
+negative_keywords = list(filter(None, negative_keywords))
+
 drift_keywords = ['drift', 'glisse', 'glissé']
 haha_keywords = ['mdr', 'lol', 'ptdr', 'haha']
 
