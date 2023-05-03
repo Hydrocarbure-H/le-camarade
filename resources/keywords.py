@@ -2,7 +2,7 @@ from enum import Enum
 
 # Create a list from 2 files
 with open("resources/keywords/insults/1.txt", 'r') as f:
-    file1 = f.readlines()
+    file = f.readlines()
 with open("resources/keywords/insults/2.txt", 'r') as f:
     file2 = f.readlines()
 with open("resources/keywords/insults/3.txt", 'r') as f:
@@ -12,7 +12,7 @@ with open("resources/keywords/insults/4.txt", 'r') as f:
 with open("resources/keywords/insults/5.txt", 'r') as f:
     file5 = f.readlines()
 
-insults_keywords = [x.strip() for x in file1] + [x.strip() for x in file2] + [x.strip() for x in file5]
+insults_keywords = [x.strip() for x in file5]
 with open("resources/keywords/negative/1.txt", 'r') as f:
     file1 = f.readlines()
 
