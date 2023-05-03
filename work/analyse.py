@@ -48,8 +48,8 @@ def check_content(text):
     txt = text.lower()
 
     # # Check if the txt contains a insult keyword
-    # if any(x in txt for x in keywords[Keywords.INSULT.value]):
-    #     return Keywords.INSULT
+    if any(x in txt for x in keywords[Keywords.INSULT.value]):
+        return Keywords.INSULT
 
     # Check if the txt contains a drift keyword
     if any(x in txt for x in keywords[Keywords.DRIFT.value]):
