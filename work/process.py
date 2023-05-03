@@ -64,8 +64,14 @@ async def insult_actions(message):
     if answer is not None:
         await message.channel.send(answer)
     else:
-        response = random.randint(0, len(messages[Messages.IRNONIC.value]) - 1)
-        await message.channel.send("*" + messages[Messages.IRNONIC.value][response] + "*")
+        if random.randint(0, 1) == 0:
+            await message.add_reaction('👍')
+        else:
+            camarades = conf.camarades()
+            if str(message.author) in camarades:
+                await message.add_reaction('📝')
+                await message.channel.send(
+                    "Attention " + message.author.mention + ", tu as glissé ! Tu veux que ton score baisse ?!")
     return
 
 
@@ -81,13 +87,3 @@ async def default_actions(message):
     answer = gpt_answer(message.content)
     if answer is not None:
         await message.channel.send(answer)
-    else:
-        if random.randint(0, 1) == 0:
-            await message.add_reaction('👍')
-        else:
-            camarades = conf.camarades()
-            if str(message.author) in camarades:
-                await message.add_reaction('📝')
-                await message.channel.send(
-                    "Attention " + message.author.mention + ", tu as glissé ! Tu veux que ton score baisse ?!")
-                # Decrease score TODO
