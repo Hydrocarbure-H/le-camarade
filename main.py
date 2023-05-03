@@ -23,7 +23,7 @@ class MyClient(discord.Client):
 
         if str(message.channel) == "le-camarade-pété" or str(message.channel) == "discord":
             await analyse.talk_with_gpt(message)
-        else:
+        elif str(message.channel) != "le-goulag":
             await analyse.analyse(message)
 
 
