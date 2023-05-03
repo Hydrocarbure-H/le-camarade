@@ -21,9 +21,11 @@ class MyClient(discord.Client):
         if message.author == self.user:
             return
 
+        # Checks for social score board here
+
         if str(message.channel) == "le-camarade-pété" or str(message.channel) == "discord":
             await analyse.talk_with_gpt(message)
-        elif str(message.channel) != "le-goulag":
+        elif str(message.channel) == "le-goulag":
             await analyse.analyse(message)
 
 
