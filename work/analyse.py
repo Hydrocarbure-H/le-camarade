@@ -47,12 +47,12 @@ def check_content(text):
     """
     txt = text.lower()
 
-    # Check if the txt contains a insult keyword
-    if any(x in txt for x in keywords[Keywords.INSULT.value]):
-        return Keywords.INSULT
+    # # Check if the txt contains a insult keyword
+    # if any(x in txt for x in keywords[Keywords.INSULT.value]):
+    #     return Keywords.INSULT
 
     # Check if the txt contains a drift keyword
-    elif any(x in txt for x in keywords[Keywords.DRIFT.value]):
+    if any(x in txt for x in keywords[Keywords.DRIFT.value]):
         return Keywords.DRIFT
 
     # Check if the txt contains a haha keyword
