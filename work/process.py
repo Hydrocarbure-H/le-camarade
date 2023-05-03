@@ -64,7 +64,7 @@ async def insult_actions(message):
     if answer is not None:
         await message.channel.send(answer)
     else:
-        if random.randint(0, 1) == 0:
+        if random.randint(0, 20) == 0:
             await message.add_reaction('👍')
         else:
             camarades = conf.camarades()
