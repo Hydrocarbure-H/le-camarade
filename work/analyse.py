@@ -15,21 +15,26 @@ async def analyse(message):
     if t is not None:
         # Check for haha
         if t == Keywords.HAHA:
+            print("HAHA KEYWORD")
             await haha_actions(message)
             return
         # Check for drift (GIFTS)
         elif t == Keywords.DRIFT:
+            print("DRIFT KEYWORD")
             await drift_actions(message)
             return
         # Check for insults
         elif t == Keywords.INSULT:
+            print("INSULT KEYWORD")
             await insult_actions(message)
             return
         # Check for other keywords (only discriminative)
         elif t == Keywords.OTHER:
+            print("OTHER KEYWORD")
             await default_actions(message)
             return
         elif t == Keywords.CAMARADE:
+            print("CAMARADE KEYWORD")
             await lecamarade_actions(message)
             return
 
