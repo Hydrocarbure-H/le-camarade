@@ -13,6 +13,7 @@ with open("resources/keywords/insults/5.txt", 'r') as f:
     file5 = f.readlines()
 
 insults_keywords = [x.strip() for x in file5]
+print(insults_keywords)
 with open("resources/keywords/negative/1.txt", 'r') as f:
     file1 = f.readlines()
 
