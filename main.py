@@ -1,3 +1,5 @@
+import random
+
 import conf
 import discord
 from work import analyse
@@ -22,6 +24,9 @@ class MyClient(discord.Client):
             return
 
         # Checks for social score board here
+
+        if random.randint(0, 1) == 0:
+            await message.add_reaction('👍')
 
         if str(message.channel) == "le-camarade-pété" or str(message.channel) == "discord":
             await analyse.talk_with_gpt(message)
