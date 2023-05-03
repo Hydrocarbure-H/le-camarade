@@ -41,6 +41,10 @@ async def lecamarade_actions(message):
     answer = gpt_answer(message.content)
     if answer is not None:
         await message.channel.send(message.author.mention + " " + answer)
+    else:
+        await message.channel.send(
+            "Désolé camarade " + message.author.mention + " je n'ai pas compris ! Mon savoir est probablement "
+                                                          "surchargé.")
 
 
 async def insult_actions(message):
