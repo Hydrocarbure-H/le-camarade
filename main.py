@@ -25,7 +25,7 @@ class MyClient(discord.Client):
 
         # Checks for social score board here
 
-        if random.randint(0, 1) == 0:
+        if random.randint(0, 5) == 0:
             await message.add_reaction('👍')
 
         if str(message.channel) == "le-camarade-pété" or str(message.channel) == "discord":
