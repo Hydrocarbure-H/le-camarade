@@ -10,7 +10,8 @@ def connect():
             host=db_host,
             user=db_user,
             password=db_pass,
-            database=db_name
+            database=db_name,
+            auth_plugin='mysql_native_password'
         )
         return mydb
     except Exception as e:
@@ -25,6 +26,7 @@ def connectfirsttime():
             host=db_host,
             user=db_user,
             password=db_pass,
+            auth_plugin='mysql_native_password'
         )
         construct(mydb)
         fill(mydb)
