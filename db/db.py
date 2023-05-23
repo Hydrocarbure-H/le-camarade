@@ -43,14 +43,7 @@ def construct(db):
     mycursor.execute("USE lecamarade")
 
     # Create a table users with id, pseudo
-    mycursor.execute("CREATE TABLE users (id INT AUTO_INCREMENT PRIMARY KEY, pseudo VARCHAR(255))")
-
-    # Create a table actions with id, user_id, action, date
-    mycursor.execute(
-        "CREATE TABLE actions (id INT AUTO_INCREMENT PRIMARY KEY, user_id INT, action VARCHAR(255), date DATETIME)")
-
-    # Create a table template_actions with id, name, value
-    mycursor.execute("CREATE TABLE template_actions (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), value INT)")
+    mycursor.execute("CREATE TABLE users (id INT AUTO_INCREMENT PRIMARY KEY, pseudo VARCHAR(255), score INT DEFAULT 0)")
     db.commit()
 
 
@@ -68,16 +61,4 @@ def fill(db):
     ]
     for v in val:
         mycursor.execute(sql, (v,))
-
-    # Insert some template actions
-    sql = "INSERT INTO template_actions (name, value) VALUES (%s, %s)"
-    val = [
-        ("haha", 5),
-        ("drift", 10),
-        ("insult", -10),
-        ("other", -15),
-        ("camarade", 1)
-    ]
-    for v in val:
-        mycursor.execute(sql, v)
     db.commit()

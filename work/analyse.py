@@ -1,10 +1,12 @@
 import conf
 from resources.keywords import Keywords, keywords
-from work.process import haha_actions, drift_actions, insult_actions, default_actions, lecamarade_actions
+from work.process import haha_actions, drift_actions, insult_actions, default_actions, lecamarade_actions, \
+    insert_user_action_db
 from generation.chatgpt import gpt_talk
+from db.db import connect
 
 
-async def analyse(message):
+async def analyse(message, social_score=False):
     """
     Analyse the message to see if it contains a keyword
     :param message: The discord message object
@@ -16,25 +18,35 @@ async def analyse(message):
         # Check for haha
         if t == Keywords.HAHA:
             print("HAHA KEYWORD")
+            if social_score:
+                insert_user_action_db(message, 10)
             await haha_actions(message)
             return
         # Check for drift (GIFTS)
         elif t == Keywords.DRIFT:
             print("DRIFT KEYWORD")
+            if social_score:
+                insert_user_action_db(message, 5)
             await drift_actions(message)
             return
         # Check for insults
         elif t == Keywords.INSULT:
             print("INSULT KEYWORD")
+            if social_score:
+                insert_user_action_db(message, -10)
             await insult_actions(message)
             return
         # Check for other keywords (only discriminative)
         elif t == Keywords.OTHER:
             print("OTHER KEYWORD")
+            if social_score:
+                insert_user_action_db(message, -5)
             await default_actions(message)
             return
         elif t == Keywords.CAMARADE:
             print("CAMARADE KEYWORD")
+            if social_score:
+                insert_user_action_db(message, 1)
             await lecamarade_actions(message)
             return
 
@@ -83,3 +95,39 @@ async def talk_with_gpt(message):
         await message.channel.send(
             "Je n'ai pas compris, camarade. Il est possible que mon savoir soit actuellement surchargé.")
     return
+
+
+def display_scoreboard():
+    """
+    Display the scoreboard
+    :return: Nothing
+    """
+    db = connect()
+    cursor = db.cursor()
+    # Get the users
+    cursor.execute("SELECT pseudo,score FROM users")
+    users = cursor.fetchall()
+    db.close()
+
+    # format the result for discord
+
+    response = "Voici le social scoreboard actuel cher camarades ! \n"
+    response += "**==============================**\n"
+    response += "**         :heart: : Les camarades :heart:**\n"
+    response += "                                  \n"
+    response += "                                  \n"
+    for user in users:
+        username, score = user
+        # If the value is negative, add an emoji
+        if score < 0:
+            # mention the user ins discord
+            response += f"- ||:skull: - {username} : **{score}**||\n"
+        else:
+            response += f"- ||:flag_cn: - {username} : **{score}**||\n"
+    response += "                                  \n"
+    response += "                                  \n"
+    response += "                                  \n"
+    response += "                                  \n"
+    response += "**==============================**\n"
+
+    return response

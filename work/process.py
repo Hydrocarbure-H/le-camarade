@@ -4,6 +4,7 @@ import conf
 from generation.chatgpt import gpt_answer
 from resources.messages import Messages, messages
 from generation.joke import get_gif
+from db.db import connect
 
 
 async def haha_actions(message):
@@ -69,9 +70,11 @@ async def insult_actions(message):
         else:
             camarades = conf.camarades()
             if str(message.author) in camarades:
-                await message.add_reaction('📝')
-                await message.channel.send(
-                    "Attention " + message.author.mention + ", tu as glissé ! Tu veux que ton score baisse ?!")
+                if random.randint(0, 1) == 0:
+                    await message.add_reaction('📝')
+                else:
+                    await message.channel.send(
+                        "Très bien, " + message.author.mention + ", je note.")
     return
 
 
@@ -87,3 +90,12 @@ async def default_actions(message):
     answer = gpt_answer(message.content)
     if answer is not None:
         await message.channel.send(answer)
+
+
+def insert_user_action_db(message, value):
+    db = connect()
+    # Get user id
+    sql = "UPDATE users SET score = score + %s WHERE pseudo = %s"
+    cursor = db.cursor()
+    cursor.execute(sql, (value, str(message.author)))
+    db.commit()
