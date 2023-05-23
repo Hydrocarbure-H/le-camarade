@@ -2,6 +2,8 @@ import random
 
 import conf
 import discord
+
+from db import db
 from work import analyse
 
 
@@ -21,6 +23,12 @@ class MyClient(discord.Client):
         """
 
         if message.author == self.user:
+            return
+
+        # Check for reset all db
+        if message.content == "//RESET ALL DB":
+            await message.channel.send("Resetting all DB...")
+            await message.channel.send(db.connectfirsttime())
             return
 
         # Checks for social score board here
