@@ -4,6 +4,7 @@ import conf
 import discord
 
 from db import db
+from db.db import check_all_users_score
 from resources import emojis
 from work import analyse
 
@@ -28,7 +29,7 @@ class MyClient(discord.Client):
 
         # Check the date : if it is the first message of the week, send the social score board and reset the db
         current_day_of_week = message.created_at.weekday()
-        if current_day_of_week == 0:
+        if current_day_of_week == 0 and check_all_users_score():
             await message.channel.send("C'est Lundi ! Voyons voir quel camarade a été le meilleur de la semaine !\n\n")
             await message.channel.send(analyse.display_scoreboard())
             db.connectfirsttime()

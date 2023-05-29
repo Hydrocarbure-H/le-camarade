@@ -64,3 +64,15 @@ def fill(db):
     for v in val:
         mycursor.execute(sql, (v,))
     db.commit()
+
+
+def check_all_users_score():
+    db = connect()
+    mycursor = db.cursor()
+    mycursor.execute("SELECT score FROM users")
+    myresult = mycursor.fetchall()
+    # check if all users have a score = 0
+    for x in myresult:
+        if x[0] != 0:
+            return False
+    return True

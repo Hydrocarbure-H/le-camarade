@@ -109,6 +109,9 @@ def display_scoreboard():
     users = cursor.fetchall()
     db.close()
 
+    # Sort the list by score
+    users.sort(key=lambda x: x[1], reverse=True)
+
     # format the result for discord
 
     response = "Voici le social scoreboard actuel cher camarades ! \n"
@@ -120,12 +123,12 @@ def display_scoreboard():
         username, score = user
         # If the value is negative, add an emoji
         if score < 0:
-            # mention the user ins discord
             response += f"- ||:skull: - {username} : **{score}**||\n"
         else:
             response += f"- ||:flag_cn: - {username} : **{score}**||\n"
     response += "                                  \n"
     response += "                                  \n"
+    print("Nous devons donc maintenant prendre exemple sur " + users[0][0] + " qui est le meilleur camarade !")
     response += "                                  \n"
     response += "                                  \n"
     response += "**==============================**\n"
