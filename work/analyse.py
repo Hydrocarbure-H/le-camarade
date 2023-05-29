@@ -128,7 +128,7 @@ def display_scoreboard():
             response += f"- ||:flag_cn: - {username} : **{score}**||\n"
     response += "                                  \n"
     response += "                                  \n"
-    print("Nous devons donc maintenant prendre exemple sur " + users[0][0] + " qui est le meilleur camarade !")
+    response += "Nous devons donc maintenant prendre exemple sur " + users[0][0] + " qui est le meilleur camarade !"
     response += "                                  \n"
     response += "                                  \n"
     response += "**==============================**\n"
