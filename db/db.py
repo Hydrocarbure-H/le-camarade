@@ -74,5 +74,5 @@ def check_all_users_score():
     # check if all users have a score = 0
     for x in myresult:
         if x[0] != 0:
-            return False
-    return True
+            return True
+    return False
