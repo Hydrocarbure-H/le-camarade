@@ -3,7 +3,7 @@ on: [push]
 jobs:
 
   build:
-    name: Build
+    name: Deploying Le Camarade on server
     runs-on: ubuntu-latest
     steps:
     - name: Executing remote pipeline over SSH
