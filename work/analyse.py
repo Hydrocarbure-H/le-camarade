@@ -26,7 +26,7 @@ async def analyse(message, social_score=False):
         elif t == Keywords.DRIFT:
             print("DRIFT KEYWORD")
             if social_score:
-                insert_user_action_db(message, 5)
+                insert_user_action_db(message, 20)
             await drift_actions(message)
             return
         # Check for insults
@@ -46,7 +46,7 @@ async def analyse(message, social_score=False):
         elif t == Keywords.CAMARADE:
             print("CAMARADE KEYWORD")
             if social_score:
-                insert_user_action_db(message, 1)
+                insert_user_action_db(message, 11)
             await lecamarade_actions(message)
             return
 
